@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" id="name" />
+                </td>
+                <td>
+                    <div id="validationName" style="color: red;"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>address</td>
+                <td>
+                    <input type="text" id="address" />
+                </td>
+                <td>
+                    <div id="validationAddress" style="color: red;"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="text" id="email" />
+                </td>
+                <td>
+                    <div id="validationEmail" style="color: red;"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="calling()">Register Here</button>
+                </td>
+            </tr>
+        </table>
+
+    </center>
+
+    <script>
+
+        function calling() {
+            debugger;
+            validations("name", "validationName", "Name is required");
+            validations("address", "validationAddress", "Address is required");
+            validations("email", "validationEmail", "Email is required");
+
+        }
+
+
+        function validations(id, validationId, errorMessage) {
+            var refForGetElements = document.getElementById(id);
+            var refForValidation = document.getElementById(validationId);
+
+            if (refForGetElements.value == "") {
+                refForValidation.innerText = errorMessage;
+            } else {
+                refForValidation.innerText = "";
+                console.log(refForGetElements.value);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
