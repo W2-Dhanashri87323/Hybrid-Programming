@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //--------------------------------------------------------------------------
+        // function demo() {
+        //     var variable = function () {
+        //         console.log("Hello");
+        //     }
+        //     return variable;
+        // }
+        // debugger;
+        // var fn = demo();
+        // fn();
+        //--------------------------------------------------------------------------
+
+        var person = {
+            no: 1,
+            name: "Dhanu",
+            addr: "Satara",
+            print: function () {
+                console.log(this.no + this.name + this.addr);
+            }
+        };
+
+        debugger;
+        console.log("Welcome " + person.name);
+        person.print();
+        person.addr = "pune";
+        person.print();
+
+        //--------------------------------------------------------------------------
+
+        var people = [
+            { no: 1, name: "Dhanu", addr: "Satara" },
+            { no: 1, name: "raj", addr: "kop" },
+            { no: 1, name: "ankita", addr: "pune" }
+        ];
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

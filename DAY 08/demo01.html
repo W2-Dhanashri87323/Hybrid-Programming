@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h2> Registration Form </h2>
+        <table>
+            <tr>
+                <td>Name :</td>
+                <td>
+                    <input type="text" id="name">
+                </td>
+                <br>
+            </tr>
+            <tr>
+                <td>Age :</td>
+                <td>
+                    <input type="text" id="Age">
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td>country :</td>
+                <td>
+                    <select id="cmdCountry">
+                        <option value="91">India </option>
+                        <option value="1">USA </option>
+                        <option value="2">UK </option>
+                        <option value="3">China </option>
+                    </select>
+                    <br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Hobbies :</td>
+                <td>
+                    <select id="cmdHobbies" multiple>
+                        <option value="1">Painting </option>
+                        <option value="2">Drawing </option>
+                        <option value="3">Cooking </option>
+                        <option value="4">Yoga </option>
+                    </select>
+                    <br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender :</td>
+                <td>
+                    <input type="radio" id="male" name="gender"> Male
+                    <input type="radio" id="female" name="gender"> Female
+                    <input type="radio" id="other" name="gender"> Other <br><br>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>Password :</td>
+                <td>
+                    <input type="password" id="password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="checkbox">I Accept the terms and conditions
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" id="button" value="Click Here" onclick="register()">
+                </td>
+            </tr>
+        </table>
+    </center>
+
+    <script>
+
+        //age validation and show age
+        function register() {
+            debugger;
+
+            var refForName = document.getElementById("name");
+            console.log(refForName.value);
+
+            var refForAge = document.getElementById("Age");
+
+            if (refForAge.value != "") {
+                if (isNaN(refForAge.value)) {
+                    alert("you can enter only number !!");
+                } else {
+                    var age = parseInt(refForAge.value);
+                    if (age < 18 || age > 60) {
+                        alert("Invalid age range");
+                    } else {
+                        console.log(age);
+                    }
+                }
+            } else {
+                alert("Plase enter the age!!")
+            }
+
+
+            //show country selected
+            var refForCountry = document.getElementById("cmdCountry");
+            console.log("Country code selected is : " + refForCountry.value);
+
+            //show hobbies selected
+            var refForHobbies = document.getElementById("cmdHobbies");
+            var arrayofHobbies = new Array();
+
+            for (var i = 0; i < refForHobbies.options.length; i++) {
+                var option = refForHobbies.options[i];
+                if (option.selected) {
+                    arrayofHobbies.push(option.value);
+                }
+            }
+            console.log("Hobbies selected : " + option.value);
+
+
+            //show gender selected
+            var refForGender = document.getElementsByName("gender");
+            var flagGender = false;
+
+            for (var j = 0; j < refForGender.length; j++) {
+                var option = refForGender[j];
+                if (option.checked) {
+                    flagGender = true;
+                    console.log("Gender option selected is :" + option.value);
+                    break;
+                }
+            }
+
+            //show password
+            var refForPassword = document.getElementById("password");
+            console.log(refForPassword.value);
+
+            //terms checkbox
+            var refForCheckBox = document.getElementById("checkbox");
+            console.log("terms accepted ? " + refForCheckBox.checked);
+        }
+    </script>
+
+</body>
+
+</html>

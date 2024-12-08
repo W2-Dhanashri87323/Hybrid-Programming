@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    <input type="text" id="email">
+                </td>
+            </tr>
+            <tr>
+                <td>Search :</td>
+                <td>
+                    <input type="text" id="search">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" id="buttonFun" onclick="fun()" value="Search">
+                    <input type="button" id="buttonNavigate" onclick="navigate()" value="navigate">
+                </td>
+            </tr>
+        </table>
+    </center>
+    <script>
+        function navigate() {
+            window.location.href = "demo02.html";
+        }
+
+        function fun() {
+            debugger;
+            var refForEmail = document.getElementById("email");
+            var refForSearch = document.getElementById("search");
+
+            sessionStorage.setItem("email", refForEmail.value);
+            sessionStorage.setItem("searched", refForSearch.value);
+        }
+
+    </script>
+
+</body>
+
+</html>
