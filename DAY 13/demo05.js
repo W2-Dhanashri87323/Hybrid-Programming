@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 
 const app = express();
 
-app.use(express.json()); // express.json it is a function which is used as middleware , which converts the body's stream data into json object .
+app.use(express.json()); // express.json it is a function which is used as middleware between server and express, which converts the body's stream data into json object .
 
 var connectionDetails = {
     host  : 'localhost',
@@ -14,7 +14,7 @@ var connectionDetails = {
 };
 
 app.use((request,response,next)=>{
-    response.setHeader("Access-Control-Allow-Origin", "*"); // it is used to give the access to the live server or postmen's server for fetching the data from the db server , it is the error of CORS(cross origin resource sharing).
+    response.setHeader("Access-Control-Allow-Origin", "*"); // it is used to give the access to the 9898 server or postmen's server for fetching the data from the db server , it is the error of CORS(cross origin resource sharing).
     next();
 })
 
@@ -28,7 +28,7 @@ app.get("/student",(request,response)=>{
         response.setHeader("content-type","application/json");
         if(error==null){
             let jsondata = JSON.stringify(result);
-            response.write(jsondata);
+            response.write(jsondata);//body
             response.end();
         }
         else
@@ -41,6 +41,7 @@ app.get("/student",(request,response)=>{
     })
 
 });
+
 
 app.listen(9898,()=>{
     console.log("server listening at port number 9898.....");

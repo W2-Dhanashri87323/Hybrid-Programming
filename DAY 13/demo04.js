@@ -4,7 +4,7 @@ const app = express();
 
 app.use((request,response,next)=>{
     response.write("hello");
-    next()
+    next();
 })
 
 app.use((request,response,next)=>{
